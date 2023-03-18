@@ -1,4 +1,4 @@
-Microchip Technology Inc, vHƒ¼
+Microchip Technology Inc, v ƒ´
 
 Tool Name:
   c:\program files (x86)\microchip\xc16\v1.21\bin\bin\..\bin/elf-ld.exe
@@ -6,7 +6,7 @@ Tool Name:
 Command:
   -p30F4013 \
   -o \
-  dist/default/production/predajnik.X.production.elf \
+  dist/default/production/prijemnik.X.production.elf \
   -Lc:/program files (x86)/microchip/xc16/v1.21/bin/bin/.. \
   -Lc:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib \
   -Lc:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib/PIC24E \
@@ -22,7 +22,7 @@ Command:
   -Lc:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F \
   -Lc:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/main.o \
-  build/default/production/adc.o \
+  build/default/production/tajmeri.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp30F4013.gld.00 \
   --stack=16 \
@@ -36,7 +36,7 @@ Command:
   --stackguard=16 \
   --no-force-link \
   --smart-io \
-  -Map=dist/default/production/predajnik.X.production.map \
+  -Map=dist/default/production/prijemnik.X.production.map \
   --report-mem \
   -start-group \
   --library=fx-elf \
@@ -58,20 +58,20 @@ Program Memory  [Origin = 0x100, Length = 0x7efe]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100                0x98            0xe4  (228)
-.const                       0x198                0x28            0x3c  (60)
-.text                        0x1c0               0x19e           0x26d  (621)
-.dinit                       0x35e                 0x8             0xc  (12)
+.text                        0x198               0x1a2           0x273  (627)
+.dinit                       0x33a                0x12            0x1b  (27)
 
-                     Total program memory used (bytes):          0x399  (921) 1%
+                     Total program memory used (bytes):          0x372  (882) 1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0             0xe  (14)
+.ndata                       0x800                   0             0x6  (6)
+.nbss                        0x806                   0             0x2  (2)
 
-                        Total data memory used (bytes):            0xe  (14) <1%
+                        Total data memory used (bytes):            0x8  (8) <1%
 
 
 Dynamic Memory Usage
@@ -79,60 +79,56 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x80e                               0x7f2  (2034)
+stack                        0x808                               0x7f8  (2040)
 
-                        Maximum dynamic memory (bytes):          0x7f2  (2034)
+                        Maximum dynamic memory (bytes):          0x7f8  (2040)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _sirovi0
-                    0x0802                  _sirovi1
-                    0x0804                  _sirovi2
-                    0x0806                  _broj
-                    0x0808                  _broj1
-                    0x080a                  _broj2
-                    0x080c                  _tempRX
+                    0x0800                  _tempRX
+                    0x0802                  _flag
+                    0x0804                  _unos
+                    0x0806                  _stoperica
 
 External Symbols in Data Memory (by name):
 
-                    0x0806                  _broj
-                    0x0808                  _broj1
-                    0x080a                  _broj2
-                    0x0800                  _sirovi0
-                    0x0802                  _sirovi1
-                    0x0804                  _sirovi2
-                    0x080c                  _tempRX
+                    0x0802                  _flag
+                    0x0806                  _stoperica
+                    0x0800                  _tempRX
+                    0x0804                  _unos
 
 External Symbols in Program Memory (by address):
 
                   0x000100                  __resetPRI
                   0x000126                  __psv_init
-                  0x000136                  __data_init
                   0x000136                  __data_init_standard
+                  0x000136                  __data_init
                   0x000194                  __DefaultInterrupt
-                  0x0001c0                  _initUART1
-                  0x0001da                  __U1RXInterrupt
-                  0x0001f2                  _WriteUART1
-                  0x00021a                  _putString
-                  0x00024c                  __ADCInterrupt
-                  0x00026c                  _main
-                  0x0002e8                  _ADCinit
+                  0x000198                  _initUART1
+                  0x0001b2                  __U1RXInterrupt
+                  0x0001e0                  _WriteUART1
+                  0x000208                  _putString
+                  0x00023a                  _delay_ms
+                  0x000250                  __T1Interrupt
+                  0x00026e                  _main
+                  0x000324                  _Init_T1
 
 External Symbols in Program Memory (by name):
 
-                  0x0002e8                  _ADCinit
-                  0x0001f2                  _WriteUART1
-                  0x00024c                  __ADCInterrupt
+                  0x000324                  _Init_T1
+                  0x0001e0                  _WriteUART1
                   0x000194                  __DefaultInterrupt
-                  0x0001da                  __U1RXInterrupt
+                  0x000250                  __T1Interrupt
+                  0x0001b2                  __U1RXInterrupt
                   0x000136                  __data_init
                   0x000136                  __data_init_standard
                   0x000126                  __psv_init
                   0x000100                  __resetPRI
-                  0x0001c0                  _initUART1
-                  0x00026c                  _main
-                  0x00021a                  _putString
+                  0x00023a                  _delay_ms
+                  0x000198                  _initUART1
+                  0x00026e                  _main
+                  0x000208                  _putString
 
 Memory Configuration
 
@@ -160,7 +156,7 @@ FICD             0xf8000c           0x000002
 Linker script and memory map
 
 LOAD build/default/production/main.o
-LOAD build/default/production/adc.o
+LOAD build/default/production/tajmeri.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC30F\libp30F4013-elf.a
                     0x8005c0                  __FUID0 = 0x8005c0
@@ -255,31 +251,31 @@ userdata
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1927
+.debug_info       0x000000       0x1072
  *(.debug_info)
- .debug_info      0x000000        0xf1b build/default/production/main.o
- .debug_info      0x000f1b        0xa0c build/default/production/adc.o
+ .debug_info      0x000000        0xb2e build/default/production/main.o
+ .debug_info      0x000b2e        0x544 build/default/production/tajmeri.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x1f2
+.debug_abbrev     0x000000        0x1e8
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x13a build/default/production/main.o
- .debug_abbrev    0x00013a         0xb8 build/default/production/adc.o
+ .debug_abbrev    0x000000        0x130 build/default/production/main.o
+ .debug_abbrev    0x000130         0xb8 build/default/production/tajmeri.o
 
-.debug_line       0x000000        0x475
+.debug_line       0x000000        0x473
  *(.debug_line)
- .debug_line      0x000000        0x32b build/default/production/main.o
- .debug_line      0x00032b        0x14a build/default/production/adc.o
+ .debug_line      0x000000        0x39d build/default/production/main.o
+ .debug_line      0x00039d         0xd6 build/default/production/tajmeri.o
 
-.debug_frame      0x000000         0x98
+.debug_frame      0x000000         0xa8
  *(.debug_frame)
- .debug_frame     0x000000         0x74 build/default/production/main.o
- .debug_frame     0x000074         0x24 build/default/production/adc.o
+ .debug_frame     0x000000         0x84 build/default/production/main.o
+ .debug_frame     0x000084         0x24 build/default/production/tajmeri.o
 
-.debug_str        0x000000         0x97
+.debug_str        0x000000         0x5f
  *(.debug_str)
- .debug_str       0x000000         0x5a build/default/production/main.o
- .debug_str       0x00005a         0x3d build/default/production/adc.o
+ .debug_str       0x000000         0x43 build/default/production/main.o
+ .debug_str       0x000043         0x1c build/default/production/tajmeri.o
 
 .debug_loc
  *(.debug_loc)
@@ -288,12 +284,12 @@ userdata
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xe9
+                  0x000000         0xd4
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0xcb build/default/production/main.o
+                  0x000000         0xb6 build/default/production/main.o
  .debug_pubnames
-                  0x0000cb         0x1e build/default/production/adc.o
+                  0x0000b6         0x1e build/default/production/tajmeri.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -303,7 +299,7 @@ userdata
  .debug_aranges
                   0x000000         0x18 build/default/production/main.o
  .debug_aranges
-                  0x000018         0x18 build/default/production/adc.o
+                  0x000018         0x18 build/default/production/tajmeri.o
 
 .ivt              0x000004         0x7c
                   0x000004          0x4 LONG 0x194 DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
@@ -317,15 +313,15 @@ userdata
                   0x000014          0x4 LONG 0x194 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x194 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x194 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x194 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x250 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x194 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x194 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x194 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000022          0x4 LONG 0x194 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x194 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000026          0x4 LONG 0x1da DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000026          0x4 LONG 0x1b2 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x194 DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00002a          0x4 LONG 0x24c DEFINED (__ADCInterrupt)?ABSOLUTE (__ADCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002a          0x4 LONG 0x194 DEFINED (__ADCInterrupt)?ABSOLUTE (__ADCInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002c          0x4 LONG 0x194 DEFINED (__NVMInterrupt)?ABSOLUTE (__NVMInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002e          0x4 LONG 0x194 DEFINED (__SI2CInterrupt)?ABSOLUTE (__SI2CInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000030          0x4 LONG 0x194 DEFINED (__MI2CInterrupt)?ABSOLUTE (__MI2CInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -381,15 +377,15 @@ userdata
                   0x000094          0x4 LONG 0x194 DEFINED (__AltINT0Interrupt)?ABSOLUTE (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000096          0x4 LONG 0x194 DEFINED (__AltIC1Interrupt)?ABSOLUTE (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000098          0x4 LONG 0x194 DEFINED (__AltOC1Interrupt)?ABSOLUTE (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00009a          0x4 LONG 0x194 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00009a          0x4 LONG 0x250 DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00009c          0x4 LONG 0x194 DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00009e          0x4 LONG 0x194 DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000a0          0x4 LONG 0x194 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000a2          0x4 LONG 0x194 DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000a4          0x4 LONG 0x194 DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000a6          0x4 LONG 0x1da DEFINED (__AltU1RXInterrupt)?ABSOLUTE (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a6          0x4 LONG 0x1b2 DEFINED (__AltU1RXInterrupt)?ABSOLUTE (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000a8          0x4 LONG 0x194 DEFINED (__AltU1TXInterrupt)?ABSOLUTE (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000aa          0x4 LONG 0x24c DEFINED (__AltADCInterrupt)?ABSOLUTE (__AltADCInterrupt):DEFINED (__ADCInterrupt)?ABSOLUTE (__ADCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000aa          0x4 LONG 0x194 DEFINED (__AltADCInterrupt)?ABSOLUTE (__AltADCInterrupt):DEFINED (__ADCInterrupt)?ABSOLUTE (__ADCInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000ac          0x4 LONG 0x194 DEFINED (__AltNVMInterrupt)?ABSOLUTE (__AltNVMInterrupt):DEFINED (__NVMInterrupt)?ABSOLUTE (__NVMInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000ae          0x4 LONG 0x194 DEFINED (__AltSI2CInterrupt)?ABSOLUTE (__AltSI2CInterrupt):DEFINED (__SI2CInterrupt)?ABSOLUTE (__SI2CInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000b0          0x4 LONG 0x194 DEFINED (__AltMI2CInterrupt)?ABSOLUTE (__AltMI2CInterrupt):DEFINED (__MI2CInterrupt)?ABSOLUTE (__MI2CInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1131,51 +1127,49 @@ LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-pic30
 LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
-OUTPUT(dist/default/production/predajnik.X.production.elf elf32-pic30)
+OUTPUT(dist/default/production/prijemnik.X.production.elf elf32-pic30)
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000030        0x1f7
+                  0x000030        0x131
  .debug_pubtypes
-                  0x000030        0x129 build/default/production/main.o
+                  0x000030         0xc6 build/default/production/main.o
  .debug_pubtypes
-                  0x000159         0xce build/default/production/adc.o
+                  0x0000f6         0x6b build/default/production/tajmeri.o
 
 __c30_signature
-                  0x000228         0x18
+                  0x000162         0x18
  __c30_signature
-                  0x000228          0x6 build/default/production/main.o
+                  0x000162          0x6 build/default/production/main.o
  __c30_signature
-                  0x00022e          0x6 build/default/production/adc.o
+                  0x000168          0x6 build/default/production/tajmeri.o
  __c30_signature
-                  0x000234          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x00016e          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x00023a          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x000174          0x6 c:/program files (x86)/microchip/xc16/v1.21/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-.nbss               0x0800          0xe
- .nbss              0x0800          0xe build/default/production/main.o
-                    0x0800                  _sirovi0
-                    0x0802                  _sirovi1
-                    0x0804                  _sirovi2
-                    0x0806                  _broj
-                    0x0808                  _broj1
-                    0x080a                  _broj2
-                    0x080c                  _tempRX
+.ndata              0x0800          0x6
+ .ndata             0x0800          0x6 build/default/production/main.o
+                    0x0800                  _tempRX
+                    0x0802                  _flag
+                    0x0804                  _unos
 
-.const              0x8198         0x28 load address 0x000198  
- .const             0x8198         0x28 build/default/production/main.o
+.nbss               0x0806          0x2
+ .nbss              0x0806          0x2 build/default/production/main.o
+                    0x0806                  _stoperica
 
-.text             0x0001c0        0x19e
- .text            0x0001c0        0x128 build/default/production/main.o
-                  0x0001c0                  _initUART1
-                  0x0001da                  __U1RXInterrupt
-                  0x0001f2                  _WriteUART1
-                  0x00021a                  _putString
-                  0x00024c                  __ADCInterrupt
-                  0x00026c                  _main
- .text            0x0002e8         0x76 build/default/production/adc.o
-                  0x0002e8                  _ADCinit
+.text             0x000198        0x1a2
+ .text            0x000198        0x18c build/default/production/main.o
+                  0x000198                  _initUART1
+                  0x0001b2                  __U1RXInterrupt
+                  0x0001e0                  _WriteUART1
+                  0x000208                  _putString
+                  0x00023a                  _delay_ms
+                  0x000250                  __T1Interrupt
+                  0x00026e                  _main
+ .text            0x000324         0x16 build/default/production/tajmeri.o
+                  0x000324                  _Init_T1
 
-.dinit            0x00035e          0x8
- .dinit           0x00035e          0x8 data_init
+.dinit            0x00033a         0x12
+ .dinit           0x00033a         0x12 data_init

@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
                 putString("uuuuuuuuu");
                 LATFbits.LATF0 = 1;
                 LATFbits.LATF1 = 0;
-                LATFbits.LATF2 = 0;
+                //LATFbits.LATF2 = 0;
                 LATFbits.LATF4 = 0;
             }
             
@@ -116,7 +116,7 @@ int main(int argc, char** argv) {
                 
                 LATFbits.LATF0 = 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 LATFbits.LATF1 = 1;
-                LATFbits.LATF2 = 0;
+                //LATFbits.LATF2 = 0;
                 LATFbits.LATF4 = 0;
             }
             
@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
                 
                 LATFbits.LATF0 = 0;
                 LATFbits.LATF1 = 0;
-                LATFbits.LATF2 = 0;
+                //LATFbits.LATF2 = 0;
                 LATFbits.LATF4 = 1;
             }
             
@@ -136,7 +136,7 @@ int main(int argc, char** argv) {
                 
                 LATFbits.LATF0 = 0;
                 LATFbits.LATF1 = 0;
-                LATFbits.LATF2 = 1;
+                //LATFbits.LATF2 = 1;
                 LATFbits.LATF4 = 0;
             } 
             else 
