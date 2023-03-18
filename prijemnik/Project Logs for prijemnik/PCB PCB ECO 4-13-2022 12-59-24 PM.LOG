@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=GND Pin=UART1-2
-Removed Pin From Net: NetName=U1RX Pin=UART1-3
-Removed Pin From Net: NetName=U1TX Pin=UART1-4
-Added Pin To Net: NetName=U1RX Pin=UART1-2
-Added Pin To Net: NetName=U1TX Pin=UART1-3
-Added Pin To Net: NetName=GND Pin=UART1-4
-Added Member To Class: ClassName=prijemnik_sematik Member=Component D2 LED0
-Added Room: Name=prijemnik_sematik
